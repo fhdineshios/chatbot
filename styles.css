@@ -707,15 +707,27 @@ body {
   touch-action: none;
   border-radius: 999px;
   overflow: visible;
+  user-select: none;
+  -webkit-user-select: none;
   filter: drop-shadow(0 28px 40px rgba(227, 30, 36, 0.42));
   transition: transform 0.28s cubic-bezier(0.34, 1.45, 0.64, 1), filter 0.28s ease;
+}
+
+.fab.fab--dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+.fab.fab--dragging:hover {
+  transform: none;
+  filter: drop-shadow(0 28px 40px rgba(227, 30, 36, 0.42));
 }
 
 .fab:active {
   cursor: grabbing;
 }
 
-.fab:hover {
+.fab:hover:not(.fab--dragging) {
   transform: translateY(-2px) scale(1.02);
   filter: drop-shadow(0 32px 48px rgba(227, 30, 36, 0.5));
 }
@@ -727,7 +739,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fab:hover {
+  .fab:hover:not(.fab--dragging) {
     transform: none;
   }
 }
@@ -1001,6 +1013,7 @@ body {
 .modal-backdrop {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background: rgba(15, 23, 42, 0.45);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -1035,6 +1048,27 @@ body {
   min-height: min(600px, 90dvh);
   max-height: min(720px, 92dvh);
   border: 1px solid #e8eaed;
+}
+
+/* Floating draggable chat card (position set via JS) */
+#fusion-modal.modal--bot {
+  position: fixed;
+  z-index: 1;
+  margin: 0;
+  right: auto;
+  bottom: auto;
+}
+
+#fusion-modal.modal--bot.modal--dragging {
+  transition:
+    opacity 0.32s ease,
+    box-shadow 0.2s ease;
+  user-select: none;
+}
+
+#fusion-modal.modal--dragging .modal-handle,
+#fusion-modal.modal--dragging .modal-head--bot {
+  cursor: grabbing;
 }
 
 /* Side panel (Foodhub Bot history) — Fusion-style card; above footer/input (DOM after footer) */
@@ -1259,6 +1293,8 @@ body {
   border-radius: 2px;
   margin: 10px auto 4px;
   flex-shrink: 0;
+  cursor: grab;
+  touch-action: none;
 }
 
 .modal-head {
@@ -1274,6 +1310,8 @@ body {
   gap: 10px;
   padding: 4px 10px 12px;
   flex-wrap: nowrap;
+  cursor: grab;
+  touch-action: none;
 }
 
 .modal-brand {
@@ -1342,6 +1380,8 @@ body {
 
 .modal-head--bot .icon-btn {
   color: #9ca3af;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
 .modal-head--bot .icon-btn:hover {
