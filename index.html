@@ -366,7 +366,8 @@
               <p class="hero-sub">Manage your store with simple commands</p>
             </div>
 
-            <div class="chips chips--grid" id="chips">
+            <!-- Row 1 → 2 → 3 order: 3 chips, 2 chips, 1 chip (see .chips--staggered) -->
+            <div class="chips chips--staggered" id="chips">
               <button type="button" class="chip" data-text="Is my shop open?">Is my shop open?</button>
               <button type="button" class="chip" data-text="Today's orders">Today's orders</button>
               <button type="button" class="chip" data-text="Close shop">Close shop</button>
@@ -450,19 +451,24 @@
               <button type="button" class="bot-drawer__new" id="drawer-btn-new">
                 <svg
                   class="bot-drawer__new-icon"
-                  width="20"
-                  height="20"
+                  width="22"
+                  height="22"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                 >
-                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
                 </svg>
                 New conversation
               </button>
 
-              <div class="bot-drawer__empty">
+              <p class="bot-drawer__section-label" id="drawer-recent-label" hidden>Recent</p>
+              <div class="bot-drawer__list-wrap" id="drawer-list-wrap" hidden>
+                <ul class="bot-drawer__list" id="drawer-conversation-list" role="list"></ul>
+              </div>
+
+              <div class="bot-drawer__empty" id="drawer-empty-state">
                 <svg
                   class="bot-drawer__empty-bubble"
                   viewBox="0 0 80 80"
