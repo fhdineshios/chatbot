@@ -379,6 +379,41 @@
 
         <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
+        <footer class="modal-foot modal-foot--bot">
+          <div class="modal-input-row">
+            <button type="button" class="input-side-btn" aria-label="Attach file" id="btn-attach">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <label class="sr-only" for="chat-input">Message</label>
+            <textarea
+              class="chat-input"
+              id="chat-input"
+              rows="1"
+              placeholder="Ask anything..."
+              autocomplete="off"
+            ></textarea>
+            <button type="button" class="input-side-btn input-side-btn--round" aria-label="Voice input" id="btn-mic">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M12 14a3 3 0 003-3V5a3 3 0 10-6 0v6a3 3 0 003 3z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M19 11a7 7 0 01-14 0M12 18v4M8 22h8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <p class="modal-input-hint" aria-hidden="true">Enter to send · Shift+Enter for new line</p>
+          <p class="modal-disclaimer">Foodhub Bot can make mistakes. Verify important info.</p>
+        </footer>
+
+        <!-- Hamburger panel: layered above chat content + footer, clipped inside this modal -->
         <div class="bot-drawer-root" id="bot-drawer-root" aria-hidden="true">
           <div class="bot-drawer-backdrop" id="bot-drawer-backdrop" tabindex="-1"></div>
           <aside
@@ -392,7 +427,7 @@
               <div class="bot-drawer__header-left">
                 <div class="bot-drawer__logo" aria-hidden="true">
                   <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="24" cy="24" r="24" fill="#e31e24" />
+                    <circle cx="24" cy="24" r="24" fill="#2563eb" />
                     <rect x="12" y="28" width="24" height="6" rx="1.5" fill="#fff" />
                     <rect x="10" y="18" width="28" height="6" rx="1.5" fill="#fff" />
                     <rect x="8" y="8" width="32" height="6" rx="1.5" fill="#fff" />
@@ -447,40 +482,6 @@
             </footer>
           </aside>
         </div>
-
-        <footer class="modal-foot modal-foot--bot">
-          <div class="modal-input-row">
-            <button type="button" class="input-side-btn" aria-label="Attach file" id="btn-attach">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <label class="sr-only" for="chat-input">Message</label>
-            <textarea
-              class="chat-input"
-              id="chat-input"
-              rows="1"
-              placeholder="Ask anything..."
-              autocomplete="off"
-            ></textarea>
-            <button type="button" class="input-side-btn input-side-btn--round" aria-label="Voice input" id="btn-mic">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M12 14a3 3 0 003-3V5a3 3 0 10-6 0v6a3 3 0 003 3z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path d="M19 11a7 7 0 01-14 0M12 18v4M8 22h8" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-          </div>
-          <p class="modal-input-hint" aria-hidden="true">Enter to send · Shift+Enter for new line</p>
-          <p class="modal-disclaimer">Foodhub Bot can make mistakes. Verify important info.</p>
-        </footer>
       </div>
     </div>
 
